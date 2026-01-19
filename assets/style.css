@@ -1,0 +1,272 @@
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f5f6fa;
+  color:#111;
+}
+
+/* =========================
+   TOPBAR (logo + bouton)
+========================= */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  height: 64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 24px;
+
+  background: rgba(255,255,255,0.82);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand-logo{
+  height: 64px;
+  width: auto;
+  display:block;
+  object-fit: contain;
+  /* évite qu’un logo “avec du blanc” prenne trop de place */
+  max-width: 150px;
+}
+
+.brand span{
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  font-size: 15px;
+  color:#111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-actions{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.top-link{
+  text-decoration:none;
+  color:#111;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.85);
+}
+
+.top-link:hover{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   HERO (sans image)
+========================= */
+.hero{
+  padding: 52px 0 34px;
+  background:
+    radial-gradient(1200px 500px at 20% 10%, #dbe7ff 0%, transparent 60%),
+    radial-gradient(900px 420px at 80% 0%, #f3d9ff 0%, transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #f5f6fa 100%);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.hero-inner{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.hero h1{
+  margin:0 0 10px;
+  font-size: 44px;
+  letter-spacing: -1px;
+}
+
+.hero p{
+  margin:0 0 18px;
+  max-width: 720px;
+  color:#444;
+  line-height: 1.5;
+}
+
+/* =========================
+   SEARCH
+========================= */
+.search{
+  display:flex;
+  gap:10px;
+  max-width: 520px;
+}
+
+.search input{
+  flex:1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline:none;
+  background:white;
+}
+
+.search button{
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #111;
+  color: white;
+  font-weight: 700;
+  cursor:pointer;
+}
+.search button:hover{ opacity:0.92 }
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 26px 0 60px;
+}
+
+.section-head{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 0 14px;
+}
+.section-head h2{
+  margin:0;
+  font-size: 20px;
+}
+.count{
+  font-size: 13px;
+  color:#666;
+}
+
+/* =========================
+   GRID & CARDS
+========================= */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.card{
+  display:block;
+  padding: 16px 16px 14px;
+  background:white;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 16px;
+  text-decoration:none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+}
+
+.card-title{
+  font-size: 18px;
+  font-weight: 900;
+  color:#2c0b4f;
+  margin-bottom: 8px;
+
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-sub{
+  color:#555;
+  font-size: 13px;
+  line-height: 1.4;
+  min-height: 36px;
+}
+
+.card-cta{
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  color:#111;
+  opacity:0.85;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer{
+  padding: 20px;
+  text-align:center;
+  color:#666;
+  background:white;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* =========================
+   FICHE (mini hero + cards)
+========================= */
+.hero-mini{
+  padding: 34px 0 18px;
+}
+.hero-mini h1{
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+.hero-mini p{
+  margin: 0;
+  color:#444;
+}
+
+.detail-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.detail-card{
+  background: white;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.detail-card h2{
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 900;
+  color: #2c0b4f;
+}
+
+.detail-card p{
+  margin: 0;
+  color: #333;
+  line-height: 1.55;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width:700px){
+  .hero h1{ font-size: 34px; }
+  .topbar{ padding: 0 16px; }
+  .brand span{ font-size: 14px; }
+}
