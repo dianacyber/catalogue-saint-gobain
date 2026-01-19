@@ -1,83 +1,91 @@
+/* Réinitialisation : toutes les balises utilisent le même calcul de taille */
 *{box-sizing:border-box}
 
+/* Style général du site */
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background:#f5f6fa;
-  color:#111;
+  background:#f5f6fa; /* Gris clair pour le fond */
+  color:#111; /* Texte noir */
 }
 
 /* =========================
-   TOPBAR (logo + bouton)
+   BARRE DE NAVIGATION EN HAUT
 ========================= */
 .topbar{
-  position: sticky;
+  position: sticky; /* Reste collée en haut quand on scroll */
   top: 0;
-  z-index: 50;
+  z-index: 50; /* Passe au-dessus des autres éléments */
 
   height: 64px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:space-between; /* Logo à gauche, liens à droite */
   padding: 0 24px;
 
-  background: rgba(255,255,255,0.82);
+  background: rgba(255,255,255,0.82); /* Blanc semi-transparent */
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /* Effet de flou moderne */
 }
 
+/* Section logo + nom du site */
 .brand{
   display:flex;
   align-items:center;
-  gap: 12px;
+  gap: 12px; /* Espace entre logo et texte */
   min-width: 0;
 }
 
+/* Style du logo Saint-Gobain */
 .brand-logo{
   height: 64px;
   width: auto;
   display:block;
-  object-fit: contain;
-  /* évite qu’un logo “avec du blanc” prenne trop de place */
-  max-width: 150px;
+  object-fit: contain; /* Le logo garde ses proportions */
+  max-width: 150px; /* Limite la largeur */
 }
 
+/* Texte "Catalogue des applicatifs" */
 .brand span{
-  font-weight: 900;
+  font-weight: 900; /* Texte très gras */
   letter-spacing: -0.3px;
   font-size: 15px;
   color:#111;
-  white-space: nowrap;
+  white-space: nowrap; /* Pas de retour à la ligne */
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; /* "..." si trop long */
 }
 
+/* Conteneur des liens (Voir la liste, Glossaire) */
 .top-actions{
   display:flex;
   align-items:center;
   gap: 10px;
 }
 
+/* Style des boutons de navigation */
 .top-link{
   text-decoration:none;
   color:#111;
   font-size: 13px;
   font-weight: 800;
   padding: 10px 12px;
-  border-radius: 12px;
+  border-radius: 12px; /* Coins arrondis */
   border: 1px solid rgba(0,0,0,0.10);
   background: rgba(255,255,255,0.85);
 }
 
+/* Animation au survol des boutons */
 .top-link:hover{
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Ombre portée */
 }
 
 /* =========================
-   HERO (sans image)
+   BANNIÈRE D'ACCUEIL
 ========================= */
 .hero{
   padding: 52px 0 34px;
+  /* Dégradé avec plusieurs couleurs pour un effet moderne */
   background:
     radial-gradient(1200px 500px at 20% 10%, #dbe7ff 0%, transparent 60%),
     radial-gradient(900px 420px at 80% 0%, #f3d9ff 0%, transparent 55%),
@@ -85,17 +93,20 @@ body{
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
+/* Conteneur centré de la bannière */
 .hero-inner{
-  width: min(1100px, 92%);
-  margin: 0 auto;
+  width: min(1100px, 92%); /* Max 1100px ou 92% de l'écran */
+  margin: 0 auto; /* Centrage horizontal */
 }
 
+/* Titre principal */
 .hero h1{
   margin:0 0 10px;
   font-size: 44px;
-  letter-spacing: -1px;
+  letter-spacing: -1px; /* Lettres plus serrées */
 }
 
+/* Sous-titre */
 .hero p{
   margin:0 0 18px;
   max-width: 720px;
@@ -104,7 +115,7 @@ body{
 }
 
 /* =========================
-   SEARCH
+   BARRE DE RECHERCHE
 ========================= */
 .search{
   display:flex;
@@ -112,8 +123,9 @@ body{
   max-width: 520px;
 }
 
+/* Champ de texte de recherche */
 .search input{
-  flex:1;
+  flex:1; /* Prend tout l'espace disponible */
   padding: 12px 14px;
   border-radius: 12px;
   border: 1px solid #ddd;
@@ -121,19 +133,20 @@ body{
   background:white;
 }
 
+/* Bouton "Rechercher" */
 .search button{
   padding: 12px 14px;
   border-radius: 12px;
   border: 1px solid #ddd;
-  background: #111;
+  background: #111; /* Noir */
   color: white;
   font-weight: 700;
   cursor:pointer;
 }
-.search button:hover{ opacity:0.92 }
+.search button:hover{ opacity:0.92 } /* Légère transparence au survol */
 
 /* =========================
-   CONTAINER
+   CONTENEUR PRINCIPAL
 ========================= */
 .container{
   width: min(1100px, 92%);
@@ -141,30 +154,33 @@ body{
   padding: 26px 0 60px;
 }
 
+/* En-tête de section (Liste + compteur) */
 .section-head{
   display:flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: space-between; /* Titre à gauche, compteur à droite */
   margin: 0 0 14px;
 }
 .section-head h2{
   margin:0;
   font-size: 20px;
 }
+/* Compteur "X applicatifs" */
 .count{
   font-size: 13px;
   color:#666;
 }
 
 /* =========================
-   GRID & CARDS
+   GRILLE DE CARTES
 ========================= */
 .grid{
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Grille responsive */
+  gap: 14px; /* Espace entre les cartes */
 }
 
+/* Style d'une carte d'application */
 .card{
   display:block;
   padding: 16px 16px 14px;
@@ -172,21 +188,24 @@ body{
   border: 1px solid rgba(0,0,0,0.07);
   border-radius: 16px;
   text-decoration:none;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); /* Ombre légère */
+  transition: transform .12s ease, box-shadow .12s ease; /* Animation fluide */
 }
 
+/* Animation au survol d'une carte */
 .card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+  transform: translateY(-3px); /* Monte légèrement */
+  box-shadow: 0 14px 30px rgba(0,0,0,0.10); /* Ombre plus marquée */
 }
 
+/* Nom de l'application */
 .card-title{
   font-size: 18px;
   font-weight: 900;
-  color:#2c0b4f;
+  color:#2c0b4f; /* Violet foncé */
   margin-bottom: 8px;
 
+  /* Limitation à 2 lignes max */
   overflow:hidden;
   text-overflow: ellipsis;
   display:-webkit-box;
@@ -194,13 +213,15 @@ body{
   -webkit-box-orient: vertical;
 }
 
+/* Description courte de l'application */
 .card-sub{
   color:#555;
   font-size: 13px;
   line-height: 1.4;
-  min-height: 36px;
+  min-height: 36px; /* Hauteur minimale pour aligner les cartes */
 }
 
+/* Texte "Ouvrir →" */
 .card-cta{
   margin-top: 12px;
   font-size: 13px;
@@ -210,7 +231,7 @@ body{
 }
 
 /* =========================
-   FOOTER
+   PIED DE PAGE
 ========================= */
 .footer{
   padding: 20px;
@@ -221,8 +242,9 @@ body{
 }
 
 /* =========================
-   FICHE (mini hero + cards)
+   PAGE DE DÉTAIL (fiche application)
 ========================= */
+/* Bannière plus petite pour les pages de détail */
 .hero-mini{
   padding: 34px 0 18px;
 }
@@ -235,12 +257,14 @@ body{
   color:#444;
 }
 
+/* Grille des 3 blocs d'infos (Description, Pour qui, Exemple) */
 .detail-grid{
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* Une colonne */
   gap: 14px;
 }
 
+/* Style d'un bloc d'info sur la page de détail */
 .detail-card{
   background: white;
   border: 1px solid rgba(0,0,0,0.07);
@@ -249,6 +273,7 @@ body{
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
+/* Titre du bloc (Description, Pour qui, etc.) */
 .detail-card h2{
   margin: 0 0 10px;
   font-size: 16px;
@@ -256,6 +281,7 @@ body{
   color: #2c0b4f;
 }
 
+/* Texte du bloc */
 .detail-card p{
   margin: 0;
   color: #333;
@@ -263,10 +289,10 @@ body{
 }
 
 /* =========================
-   MOBILE
+   VERSION MOBILE
 ========================= */
 @media (max-width:700px){
-  .hero h1{ font-size: 34px; }
-  .topbar{ padding: 0 16px; }
-  .brand span{ font-size: 14px; }
+  .hero h1{ font-size: 34px; } /* Titre plus petit */
+  .topbar{ padding: 0 16px; } /* Moins de padding */
+  .brand span{ font-size: 14px; } /* Texte plus petit */
 }

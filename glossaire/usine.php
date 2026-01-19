@@ -29,12 +29,18 @@ $termes = [
   ["HSE / EHS", "Hygiène, Sécurité et Environnement."],
   ["ATEX", "Zone à risque nécessitant des règles de sécurité spécifiques."]
 ];
-
+// On récupère ce que l'utilisateur a tapé dans la barre de recherche
+// Si rien n'est saisi, on met une chaîne vide
 $q = strtolower($_GET['q'] ?? '');
+
+// On filtre le tableau des termes en fonction de la recherche
 $resultats = array_filter($termes, function($t) use ($q){
+
+  // Si la recherche est vide, on affiche tous les termes
+  // Sinon, on garde seulement les termes dont le nom contient le mot recherché
   return $q === '' || str_contains(strtolower($t[0]), $q);
 });
-?>
+
 
 <!doctype html>
 <html lang="fr">
