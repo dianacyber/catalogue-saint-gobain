@@ -21,9 +21,10 @@ require_once __DIR__ . '/apps.php';
 
   <div class="top-actions">
     <a class="top-link" href="#liste">Voir la liste</a>
+<a class="top-link" href="glossaire/index.php">Glossaire</a>
+
   </div>
 
-  <a class="top-link" href="glossaire.php">Glossaire</a>
 
 </header>
 
